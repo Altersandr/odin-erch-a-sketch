@@ -1,0 +1,26 @@
+#sketchField{
+  min-height: 600px;
+  min-width: 600px;
+  max-height: 600px;
+  max-width: 600px;
+  background-color: gray;
+  display:flex;
+  flex-flow: row wrap;
+}
+
+
+button{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+body{
+    min-height: 98vh;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
