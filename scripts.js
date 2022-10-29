@@ -25,7 +25,6 @@ const reset = document.getElementById('resetField');
 reset.addEventListener('click', resetGrid);
 reset.addEventListener('click', initiateGrid);
 
-let timer = null;
 
 function initiateGrid(){
     let gridSize = document.getElementById('size').value;
@@ -35,15 +34,17 @@ function initiateGrid(){
     }
     let cellSize = (divContainer.clientWidth*1.0) /gridSize;
     for(i = 0; i<gridSize**2; i++){
-        let i = document.createElement('div');
-        i.style.backgroundColor = 'lightblue';
-        i.style.margin = '1px';
-        i.className = 'box';   
-        i.style.display = 'flex' ;
-        i.style.width = (cellSize - (borderSize * 2)) + "px";
-        i.style.height = (cellSize - (borderSize * 2)) + "px";
-    
-        i.addEventListener('mouseenter', function backgroundChange(){
+        let box = document.createElement('div');
+        box.className = 'box'; 
+        box.style.width = (cellSize - (borderSize * 2)) + "px";
+        box.style.height = (cellSize - (borderSize * 2)) + "px";
+
+        
+        divContainer.addEventListener('mousedown', ()=> 
+
+        
+        box.addEventListener('mousemove', function backgroundChange(){
+            
             if (event.target.classList.contains('rainbow')){
                 let rainbow = '#';
                 let colorArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
@@ -53,26 +54,20 @@ function initiateGrid(){
                 rainbow += colorArray[Math.floor(Math.random()*colorArray.length)];
 
 
-                // console.log(event.target.className)
                 event.target.style.backgroundColor = rainbow;
                 }
             }else{
-        //     timer = setInterval( function(e){i.style.backgroundColor = `${colorPick}`
-        // console.log('mouse is up')}, 50);
-            i.style.backgroundColor = `${colorPick}`;}
-        })
-        // i.addEventListener('mouseup', mouseOut);
-        // i.addEventListener('mouseleave', mouseOut);
-        divContainer.appendChild(i);
+      
+            box.style.backgroundColor = `${colorPick}`;}
+        }))
+        
+        divContainer.appendChild(box);
     
     }
      
 }
 
 
-
-// box.addEventListener('mouseup', mouseOut);
-// box.addEventListener('mousedown', mouseOut);
 
 function mouseOut(e){
     console.log('you left')
@@ -85,30 +80,10 @@ function resetGrid(){
     divContainer.innerHTML = "";
 }
 
-
-// rainbow button function
-// let rainbow = '#';
-// colorArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
-
-// function colorGenerator(){
-//     for (let i = 0; i<6; i++){
-//         rainbow += colorArray[Math.floor(Math.random()*colorArray.length)];
-//     }
-//         return rainbow
-// }   
-
-
-// rainbow button function
 let rainbowBtn = document.getElementById('rainbow');
 rainbowBtn.addEventListener('click', ()=>{
     const box = document.querySelectorAll('.box');
     box.forEach(box=> box.classList.add('rainbow'))
 
 })
-
-
-
-function removeBgChange(){
-    i.removeEventListener('mouseenter', backgroundChange())
-}
 
