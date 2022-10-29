@@ -3,11 +3,21 @@ const divContainer = document.getElementById('sketchField');
 let colorPick = document.getElementById('colorpicker').value;
 let colorSelector = document.getElementById('colorpicker');
 
-colorSelector.addEventListener('blur', ()=> {
+// const box = document.querySelectorAll(".box")
+
+
+divContainer.addEventListener('mouseenter', ()=> {
+    const box = document.querySelectorAll(".box")
+    // box.forEach(box=> box.classList.remove('rainbow'))
+    // console.log(box)
     colorPick = colorSelector.value});
 
+colorSelector.addEventListener('blur', ()=> {
+    const box = document.querySelectorAll(".box")
+    box.forEach(box=> box.classList.remove('rainbow'))
+    // console.log(box)
+    colorPick = colorSelector.value});
 
-// let gridSize = document.getElementById('size').value;
 
 let borderSize = 1;
 
@@ -33,10 +43,23 @@ function initiateGrid(){
         i.style.width = (cellSize - (borderSize * 2)) + "px";
         i.style.height = (cellSize - (borderSize * 2)) + "px";
     
-        i.addEventListener('mouseenter', ()=>{
+        i.addEventListener('mouseenter', function backgroundChange(){
+            if (event.target.classList.contains('rainbow')){
+                let rainbow = '#';
+                let colorArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
+
+                
+                for (let i = 0; i<6; i++){
+                rainbow += colorArray[Math.floor(Math.random()*colorArray.length)];
+
+
+                // console.log(event.target.className)
+                event.target.style.backgroundColor = rainbow;
+                }
+            }else{
         //     timer = setInterval( function(e){i.style.backgroundColor = `${colorPick}`
         // console.log('mouse is up')}, 50);
-            i.style.backgroundColor = `${colorPick}`;
+            i.style.backgroundColor = `${colorPick}`;}
         })
         // i.addEventListener('mouseup', mouseOut);
         // i.addEventListener('mouseleave', mouseOut);
@@ -46,8 +69,7 @@ function initiateGrid(){
      
 }
 
-// const box = document.querySelectorAll('.box');
-// console.log(box)
+
 
 // box.addEventListener('mouseup', mouseOut);
 // box.addEventListener('mousedown', mouseOut);
@@ -63,11 +85,30 @@ function resetGrid(){
     divContainer.innerHTML = "";
 }
 
-// let rainbow = '';
 
-// let colorArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "F", "E"];
-// colorArray.forEach(Math.floor(Math.random(color=>{
-//     if(rainbow)
+// rainbow button function
+// let rainbow = '#';
+// colorArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
 
-// })
+// function colorGenerator(){
+//     for (let i = 0; i<6; i++){
+//         rainbow += colorArray[Math.floor(Math.random()*colorArray.length)];
+//     }
+//         return rainbow
+// }   
+
+
+// rainbow button function
+let rainbowBtn = document.getElementById('rainbow');
+rainbowBtn.addEventListener('click', ()=>{
+    const box = document.querySelectorAll('.box');
+    box.forEach(box=> box.classList.add('rainbow'))
+
+})
+
+
+
+function removeBgChange(){
+    i.removeEventListener('mouseenter', backgroundChange())
+}
 

@@ -6,6 +6,7 @@
   background-color: gray;
   display:flex;
   flex-flow: row wrap;
+
 }
 
 
@@ -22,5 +23,9 @@ body{
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
+}
+
+.box{
+  border-radius: 1px;
 }
 
