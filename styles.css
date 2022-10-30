@@ -1,3 +1,10 @@
+@font-face {
+  font-family: Untlang;
+  src: url(Untlang.ttf);
+  font-weight: bold;
+}
+
+
 #sketchField{
   min-height: 600px;
   min-width: 600px;
@@ -19,25 +26,27 @@ button{
 
 
 body{
-    min-height: 98vh;
+    min-height: 95vh;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
     background-color: aquamarine;
+    font-family: Untlang;
+
 }
 
 .box{
-  border-radius: 1px;
-  background-color:lightblue;
-  margin: 1px;  
+  
+  background-color:white;
+ 
 }
 
 #frame{
   background-color: rgb(245, 115, 56);
-  min-height: 90vh;
-  min-width: 90vh;
+  min-height: 80vh;
+  min-width: 80vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -47,17 +56,86 @@ body{
 }
 
 h1,
-button{
+button,
+label{
   background-color: rgb(245, 115, 56);
-  color: aquamarine;
+  /* color: aquamarine; */
   box-shadow: 2px 4px 4px #336868;
   border-radius: 11px;
-  border: 1px solid whitesmoke;
+  border: 1px solid white;
   font-weight: 800;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
+  font-family: Untlang;
+  font-size: 25px;
+  padding: 5px;
+}
 
 button:hover{
-  border: 2px solid red;
+  border: 1px solid aquamarine;
 
+}
+label:hover{
+  border: 1px solid aquamarine;
+}
+
+#color-option{
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  gap:20px;
+  padding-right: 20px;
+  min-width: 60vh;
+
+}
+.remake-row{
+  margin-top: 10px;
+}
+
+#borderToggle{
+  margin-left: 50px;
+  /* filter: brightness(0.10); */
+}
+
+h1{
+  font-size: 42px;
+}
+
+#colorpicker{
+  opacity: 0;
+  max-width: 1px;
+}
+
+input{
+  max-width: 40px;
+  font-weight: bold;
+}
+
+#eraser:hover{
+  transition: 500ms ease;
+  color: white;
+}
+
+#rainbow{
+  color: black;
+  background: linear-gradient(90deg, red, orange, yellow, green, blue, purple);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+#rainbow:hover {
+  color: transparent;
+  transition: 700ms ease;
+  border: aquamarine 1px solid;
+}
+
+.box1{
+  filter:brightness(90%)
+}
+.box2{
+  filter:brightness(80%)
+}
+.box3{
+  filter:brightness(70%)
+}
+.box4{
+  filter:brightness(60%)
 }
