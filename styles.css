@@ -127,15 +127,12 @@ input{
   border: aquamarine 1px solid;
 }
 
-.box1{
-  filter:brightness(90%)
+
+#darken:hover{
+  transition: 500ms ease;
+  background-color: rgb(136, 43, 0);
 }
-.box2{
-  filter:brightness(80%)
-}
-.box3{
-  filter:brightness(70%)
-}
-.box4{
-  filter:brightness(60%)
+h1{
+  background-color: #336868;
+  color: aliceblue;
 }
